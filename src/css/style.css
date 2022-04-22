@@ -5,6 +5,7 @@ body{
     justify-content: center;
     align-items: center;
     font-family: Poppins, Montserrat, sans-serif;
+    background-color: #f5f9ff;
 }
 
 .donations{
@@ -14,7 +15,45 @@ body{
     border-radius: 50px;
     background-color: #1168eb;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 10vh;
+}
+
+.donations img{
+    width: 50vh;
+    border-radius: 50px;
+}
+
+.donations .donations-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20vh;
+    margin-right: 10vw;
+    text-align: center;
+    padding: 1vw;
+    min-width: 13vw;
+}
+
+.donations .donations-nav span{
+    color: #fff;
+}
+
+.donations .botao{
+    padding: 2vh 7vw;
+    margin-top: 10px;
+    border-radius: 50px;
+    border: 1px solid #2c81ff;
+    background-color: #fff;
+    font-size: x-large;
+    font-weight: bold;
+    color: #1168eb;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+}
+
+.donations .botao:hover{
+    padding: 3vh 8vw;
 }
