@@ -7,10 +7,10 @@
 }
 
 body{
-    border-top: 10vh solid #1168eb;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .top{
@@ -20,19 +20,24 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    background-color: #1168eb;
+    border-radius: 3vh;
 }
 
 .paypal{
     margin: 3vw;
     max-width: 50vw;
+    max-height: 40vh;
     margin: 5vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 10px 0;
 }
 
 .paypal img{
-    height: 50vh;
+    max-height: 50vh;
+    max-width: 40vw;
 }
 
 .paypal .inputs{
@@ -56,6 +61,25 @@ body{
     width: 10vw;
 }
 
+.paypal .inputs #btn-doar{
+    background-color: #006eff;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    transition: 0.3s ease-in;
+}
+
+.paypal .inputs #btn-doar:hover{
+    transform: scale(110%);
+}
+
+.mid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
 .pix{
     margin: 3vw;
     display: flex;
@@ -63,6 +87,8 @@ body{
     align-items: center;
     flex-direction: column;
     max-width: 20vw;
+    background-color: #006eff;
+    border-radius: 3vh;
 }
 
 .pix #logo-pix {
@@ -73,4 +99,12 @@ body{
 .pix #qrcode-conta{
     width: 15vw;
     margin: 3vh;
+    border-radius: 5px;
+}
+
+.recursos{
+    color: #000;
+    max-width: 35vw;
+    text-align: center;
+    font-size: x-large;
 }

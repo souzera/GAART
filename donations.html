@@ -6,17 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaart Donations</title>
 
+    <link rel="stylesheet" href="src/css/header.css">
     <link rel="stylesheet" href="src/css/donations-style.css">
 </head>
 <body>
+
+    <header>
+        <ul>
+            <li class="logo"><img src="#" alt="logotipo GAART"></li>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="https://www.instagram.com/gaart.triunfo/">Quem Somos</a></li>
+        </ul>
+    </header>
+
     <div class="top">
         <div class="paypal">
             <img src="src/img/filhotes-donations.png" alt="imagem de filhotes de cachorro">
             <div class="inputs">
                 <img id="logo-paypal" src="src/img/paypal.png" alt="logotipo do paypal">
-                <input type="text" value="Seu Nome">
-                <input type="Text" size="12" onKeyUp="mascaraMoeda(this, event)"  value="Valor">
-                <input type="button" value="Doar" id="botaoDoar">
+                <input id="nome-input" type="text" value="Seu Nome">
+                <input id="valor-input" type="Text" size="12" onKeyUp="mascaraMoeda(this, event)"  value="Valor">
+                <input id="btn-doar" type="button" value="Doar">
             </div>
         </div>
         
@@ -29,8 +39,13 @@
             <!--este qr code serve apenas para essa versão do projeto por se tratar de um projeto com fins didáticos-->
             <img id="qrcode-conta" src="src/img/qrcodegaart.png" alt="QR Code para conta bancaria do projeto">
         </div>
+
+        <div class="recursos">
+            <p>Para doar com alimentos, remédios, tratamentos ou quaisquer outros recursos entre em contato conosco</p>
+        </div>
     </div>
 
+    <script src="src/js/donations-events.js"></script>
     <script src="src/js/mascaraMoeda.js"></script>
 </body>
 </html>
