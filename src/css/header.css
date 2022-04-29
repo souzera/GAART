@@ -1,27 +1,41 @@
 header{
     background-color: #006eff;
     height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header ul{
     list-style: none;
-    display: inline-block;
+    display: inline;
     width: 100vw;
 }
 
 header li{
     position: relative;
-    top: 2vh;
     left: 30px;
+    max-height: 7vh;
     font-size: x-large;
-    display: inline;
+    display: inline-block;
     padding: 10px;
     transition: 0.5s ease-in;
 }
 
 header ul .logo{
+    position: relative;
+    top: 3vh;
+    left: 15vw;
     padding-left: 10px;
     padding-right: 50vw;
+}
+
+header ul .logo img{
+    max-height: 8vh;
+}
+
+header .menu-header{
+    margin-bottom: 3vh;
 }
 
 header a{
