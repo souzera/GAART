@@ -108,3 +108,25 @@ body{
     text-align: center;
     font-size: x-large;
 }
+
+.recursos .submit-inputs input{
+    padding: 2vh;
+    border-radius: 50px;
+    border: 3px solid #006eff;
+}
+
+.recursos .submit-inputs #input-email{
+    margin-top: 15px;
+    width: 20vw;
+}
+
+.recursos .submit-inputs #input-botao{
+    width: 10vw;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.recursos .submit-inputs #input-botao:hover{
+    transform: scale(105%);
+}
+
