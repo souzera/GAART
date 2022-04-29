@@ -5,8 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaart Donations</title>
+
+    <link rel="stylesheet" href="src/css/donations-style.css">
 </head>
 <body>
-    <h1>ola mundo</h1>
+    <div class="top">
+        <div class="paypal">
+            <img src="src/img/filhotes-donations.png" alt="imagem de filhotes de cachorro">
+            <div class="inputs">
+                <img id="logo-paypal" src="src/img/paypal.png" alt="logotipo do paypal">
+                <input type="text" value="Seu Nome">
+                <input type="Text" size="12" onKeyUp="mascaraMoeda(this, event)"  value="Valor">
+                <input type="button" value="Doar" id="botaoDoar">
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="mid">
+        <div class="pix">
+            <img id="logo-pix" src="src/img/pix.png" alt="logo do pix">
+            <span>Faça sua doação via Pix</span>
+            <!--este qr code serve apenas para essa versão do projeto por se tratar de um projeto com fins didáticos-->
+            <img id="qrcode-conta" src="src/img/qrcodegaart.png" alt="QR Code para conta bancaria do projeto">
+        </div>
+    </div>
+
+    <script src="src/js/mascaraMoeda.js"></script>
 </body>
 </html>
