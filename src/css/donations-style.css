@@ -87,6 +87,7 @@ body{
     align-items: center;
     flex-direction: column;
     max-width: 20vw;
+    color: #fff;
     background-color: #006eff;
     border-radius: 3vh;
 }
@@ -107,6 +108,12 @@ body{
     max-width: 35vw;
     text-align: center;
     font-size: x-large;
+}
+
+.recursos .submit-inputs span{
+    font-size: medium;
+    color: #444;
+    text-align: left;
 }
 
 .recursos .submit-inputs input{

@@ -24,10 +24,10 @@ header li{
 
 header ul .logo{
     position: relative;
-    top: 3vh;
+    top: 2vh;
     left: 15vw;
-    padding-left: 10px;
-    padding-right: 50vw;
+    padding-left: 10vw;
+    padding-right: 30vw;
 }
 
 header ul .logo img{
@@ -41,4 +41,8 @@ header .menu-header{
 header a{
     color: #fff;
     text-decoration: none;
+}
+
+header a:hover{
+    color: #00295f;
 }
