@@ -11,7 +11,7 @@ body{
 
 .donations{
     position: relative;
-    width: 65vw;
+    width: 70vw;
     height: 60vh;
     border-radius: 50px;
     background-color: #1168eb;
@@ -19,6 +19,7 @@ body{
     justify-content: space-between;
     align-items: center;
     margin-top: 10vh;
+    margin-bottom: 15px;
 }
 
 .donations img{

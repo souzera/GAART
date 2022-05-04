@@ -39,10 +39,11 @@ header .menu-header{
 }
 
 header a{
-    color: #fff;
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
+    transition: 0.1s ease-in-out;
 }
 
 header a:hover{
-    color: #00295f;
+    color: #fff;
 }
