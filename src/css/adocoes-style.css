@@ -22,9 +22,34 @@
 .adocoes-content .adocoes .animal{
     display: inline-block;
     width: 20vw;
+    min-height: 50vh;
     background-color: #2c81ff;
     font-size: small;
     padding: 2vh;
     margin: 10px;
     border-radius: 30px;
+    transition: 0.5s ease-in;
+}
+
+.adocoes-content .adocoes .animal:hover{
+    transform: scale(105%);
+}
+
+.adocoes-content .adocoes .animal img{
+    margin-bottom: 1vh;
+    width: 18vw;
+    border-radius: 30px;
+}
+
+.adocoes-content .adocoes .animal .nome-animal{
+    margin-bottom: 1vh;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.adocoes-content .adocoes .animal .info{
+    font-size: small;
+    max-width: 16vw;
+    text-align: left;
+    margin-top: 1vh;
 }
