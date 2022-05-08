@@ -7,11 +7,24 @@ body{
     flex-direction: column;
     font-family: Poppins, Montserrat, sans-serif;
     background-color: #f5f9ff;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar{
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f9ff;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #1168eb;
 }
 
 .donations{
     position: relative;
-    width: 70vw;
+    width: 65vw;
     height: 60vh;
     border-radius: 50px;
     background-color: #1168eb;

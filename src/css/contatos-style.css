@@ -1,0 +1,31 @@
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    box-sizing: border-box;
+    min-height: 10vh;
+    min-width: 100vw;
+    background-color: #2c81ff;
+}
+
+.contatos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.contatos a{
+    text-decoration: none;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.contatos a:hover , .contatos p:hover{
+    color: #0e479c;
+}
+
+.contatos #ig{
+    padding:0 2vw;
+}
