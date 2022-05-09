@@ -2,6 +2,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-top: 5vh;
     box-sizing: border-box;
     min-height: 10vh;
@@ -13,19 +14,36 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 2vh;
+}
+
+.contato-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contato-item .icon{
+    padding-right: 10px;
 }
 
 .contatos a{
     text-decoration: none;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
     transition: 0.2s;
 }
 
 .contatos a:hover , .contatos p:hover{
-    color: #0e479c;
+    color: #fff;
 }
 
-.contatos #ig{
-    padding:0 2vw;
+.contatos #ig-footer{
+    padding:0 3vw;
+}
+
+footer span{
+    color: rgba(255, 255, 255, 0.566);
+    margin: 1vh 0 2vh 0;
+    font-size: smaller;
 }
