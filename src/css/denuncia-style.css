@@ -1,0 +1,12 @@
+.denuncias{
+    margin-top: 2vh;
+    transition: 0.7s ease-out;
+}
+
+.denuncias:hover{
+    transform: scale(103%);
+}
+
+.denuncias img{
+    width: 65vw;
+}

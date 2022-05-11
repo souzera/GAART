@@ -16,7 +16,7 @@ header li{
     position: relative;
     left: 30px;
     max-height: 7vh;
-    font-size: x-large;
+    font-size: large;
     display: inline-block;
     padding: 10px;
     transition: 0.5s ease-in;
@@ -26,8 +26,8 @@ header ul .logo{
     position: relative;
     top: 2vh;
     left: 15vw;
-    padding-left: 10vw;
-    padding-right: 30vw;
+    padding-left: 3vw;
+    padding-right: 20vw;
 }
 
 header ul .logo img{
