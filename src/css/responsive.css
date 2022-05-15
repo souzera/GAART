@@ -1,12 +1,76 @@
 @media (max-width: 884px){
-    
-    
+
     body{
-        background-color: coral;
+        background-color: rgb(241, 241, 241);
     }
 
-    img{
-        width: 10vw;
+    .donations{
+        height: 40vh;
+    }
+
+    .donations .donations-nav{
+        position: relative;
+        top: -7vh;
+    }
+
+    .donations #cachorro-donations{
+        width: calc(51%);
+        left: -7vw;
+    }
+
+    .donations #logo-donations{
+        width: calc(110%);
+    }
+
+    header{
+        height: 7vh;
+    }
+
+    header .logo{
+        position: relative;
+        right: 10vw;
+    }
+
+    header .logo img{
+        width: 15vw;
+        padding-left: 1vw;
+        margin: 0;
+    }
+    
+    header li{
+        position: static;
+        font-size: smaller;
+        padding: 0;
+        margin: 3px;
+    }
+    
+    .adocoes-content .adocoes{
+        display: grid;
+        background-color: coral;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 70vw;
+    }
+
+    .adocoes-content .adocoes .animal{
+        display: block;
+        width: 50vw;
+        min-height: 50vh;
+    }
+
+    .adocoes-content .adocoes .animal img{
+        margin-bottom: 1vh;
+        width: 40vw;
+        border-radius: 30px;
+    }
+
+    .adocoes-content .adocoes .animal .info{
+        font-size: small;
+        background-color: coral;
+        max-width: 30vw;
+        text-align: left;
+        margin-top: 1vh;
     }
 
 }
