@@ -79,6 +79,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    max-width: 60vw;
 }
 
 .pix{
