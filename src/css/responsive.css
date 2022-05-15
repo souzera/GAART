@@ -114,4 +114,76 @@
         font-size: x-small;
     }
 
+    .top{
+        min-height: 0;
+        max-height: auto;
+    }
+
+    .paypal{
+        flex-direction: column;
+    }
+
+    .paypal img{
+        max-height: 60vh;
+        max-width: 50vw;
+    }
+
+    .paypal .inputs #logo-paypal{
+        margin-top: 1vh;
+    }
+
+    .paypal .inputs input{
+        width: 30vw;
+    }
+
+    .mid{
+        flex-direction: column;
+    }
+
+    .pix{
+        margin: 3vw;
+        max-width: 50vw;
+    }
+
+    .pix #logo-pix {
+        width: 30vw;
+        margin: 3vh;
+    }
+
+    .pix #qrcode-conta{
+        width: 40vw;
+    }
+
+    .pix span{
+        padding-left: 4vw;
+        padding-right: 3vw;
+    }
+
+    .recursos{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        font-size: small;
+        max-width: 50vw;
+        min-width: 40vw;
+    }
+
+    .recursos .submit-inputs span{
+        font-size: smaller;
+        text-align: center;
+    }
+
+    .recursos .submit-inputs input{
+        padding: 3px;
+        min-width: 45vw;
+        text-align: center;
+        font-size: x-small;
+        border-radius: 50px;
+        border: 3px solid #006eff;
+    }
+
+    .recursos .submit-inputs #input-botao{
+        margin-top: 10px;
+    }
 }
