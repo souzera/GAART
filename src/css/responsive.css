@@ -5,43 +5,72 @@
     }
 
     .donations{
-        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 0vh;
+        max-height: 20vh;
     }
 
     .donations .donations-nav{
         position: relative;
-        top: -7vh;
+        top: 0.1vh;
+        margin:0;
+        padding: 0 3vh;
+        font-size: small;
     }
 
     .donations #cachorro-donations{
-        width: calc(51%);
-        left: -7vw;
+        display: none;
     }
 
     .donations #logo-donations{
-        width: calc(110%);
+        width: calc(90%);
+    }
+
+    .donations-nav .botao{
+        padding: 1vh 4vw;
+        font-size: small;
+    }
+    
+    .donations .botao:hover{
+        padding: 1vh 5vw;
     }
 
     header{
-        height: 7vh;
+        margin: 0;
+        padding: 0;
+        height: 3vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 4vw;
     }
 
     header .logo{
-        position: relative;
-        right: 10vw;
+        display: none;
     }
 
-    header .logo img{
-        width: 15vw;
-        padding-left: 1vw;
-        margin: 0;
+    header ul{
+        position: relative;
+        top: 1.2vh;
+        left: -1.5vw;
+        padding:0px;
+        margin:0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     header li{
-        position: static;
         font-size: smaller;
-        padding: 0;
-        margin: 3px;
+        display: inline-block;
+    }
+
+    .adocoes-content{
+        text-align: center;
+        color: #fff;
+        margin-bottom: 1vh;
     }
     
     .adocoes-content .adocoes{
@@ -51,11 +80,17 @@
         align-items: center;
         width: 70vw;
     }
+    .adocoes-content .adocoes-header{
+        padding: 2vh;
+        margin: 0;
+        font-size: x-large;
+    }
 
     .adocoes-content .adocoes .animal{
         display: block;
         width: 50vw;
-        height: auto;
+        min-height: 20vh;
+        max-height: auto;
     }
 
     .adocoes-content .adocoes .animal img{
@@ -65,11 +100,18 @@
     }
 
     .adocoes-content .adocoes .animal .info{
-        font-size: small;
-        background-color: coral;
+        font-size: smaller;
         max-width: 30vw;
         text-align: left;
         margin-top: 1vh;
+    }
+
+    footer span{
+        font-size: xx-small;
+    }
+
+    .contatos p,a{
+        font-size: x-small;
     }
 
 }
