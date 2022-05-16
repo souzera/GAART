@@ -1,4 +1,4 @@
-@media (max-width: 884px){
+@media (max-width: 840px){
 
     body{
         background-color: rgb(241, 241, 241);
@@ -25,16 +25,16 @@
     }
 
     .donations #logo-donations{
-        width: calc(90%);
+        width: 35vw;
     }
 
     .donations-nav .botao{
-        padding: 1vh 4vw;
+        padding: 0.5vh 3vw;
         font-size: small;
     }
     
     .donations .botao:hover{
-        padding: 1vh 5vw;
+        padding: 1vh 3.5vw;
     }
 
     header{
@@ -185,5 +185,19 @@
 
     .recursos .submit-inputs #input-botao{
         margin-top: 10px;
+    }
+
+}
+
+@media (max-height: 394px){
+    
+    .donations{
+        min-height: 20vh;
+        max-height: 50vh;
+    }
+
+    header{
+        height: 12vh;
+        width: 100vw;
     }
 }
