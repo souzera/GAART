@@ -200,4 +200,8 @@
         height: 12vh;
         width: 100vw;
     }
+
+    .adocoes-content .adocoes .animal .info{
+        padding-left: 2vw;
+    }
 }
