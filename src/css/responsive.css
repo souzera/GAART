@@ -204,4 +204,12 @@
     .adocoes-content .adocoes .animal .info{
         padding-left: 2vw;
     }
+
+    .paypal #filhotes-donations{
+        display: none;
+    }
+
+    .adocoes-content .adocoes{
+        align-items: flex-start;
+    }
 }
