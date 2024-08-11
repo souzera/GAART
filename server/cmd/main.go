@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"github.com/souzera/GAART/config"
+)
+
+var (
+	logger config.Logger
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	logger = *config.NewLogger("GAART")
+
+	logger.Infof("hello world")
 }
