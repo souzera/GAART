@@ -34,6 +34,43 @@ func MigrateUsuario(db *gorm.DB) error {
 	return db.AutoMigrate(&schemas.Usuario{})
 }
 
+func MigrateAdmin(db *gorm.DB) error {
+	return db.AutoMigrate(&schemas.Admin{})
+}
+
+func MigrateTutor(db *gorm.DB) error {
+	return db.AutoMigrate(&schemas.Tutor{})
+}
+
+func MigrateAnimal(db *gorm.DB) error {
+	return db.AutoMigrate(&schemas.Animal{})
+}
+
+func MigrateAdocao(db *gorm.DB) error {
+	return db.AutoMigrate(&schemas.Adocao{})
+}
+
 func MigrateAll(db *gorm.DB) error {
+
+	if err := MigrateUsuario(db); err != nil {
+		return err
+	}
+
+	if err := MigrateAdmin(db); err != nil {
+		return err
+	}
+
+	if err := MigrateTutor(db); err != nil {
+		return err
+	}
+
+	if err := MigrateAnimal(db); err != nil {
+		return err
+	}
+
+	if err := MigrateAdocao(db); err != nil {
+		return err
+	}
+
 	return nil
 }
