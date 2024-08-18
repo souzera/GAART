@@ -8,7 +8,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func sendError(context *gin.Context, code int, message string) {
+func sendError(
+	context *gin.Context,
+	code int,
+	message string,
+) {
 	context.Header("Content-Type", "application/json")
 	context.JSON(code, gin.H{
 		"message":   message,
