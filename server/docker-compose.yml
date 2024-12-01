@@ -1,17 +1,14 @@
-version: ''
+version: '3.8'
 
 services:
-  gaart-db:
-    container_name: gaart-db
-    image: postgres:12
+  postgres:
+    image: postgres:14
+    container_name: postgres
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: gaart
     volumes:
-      - pgdata:var/lib/postgresql/data
-
-volumes:
-  pgdata: {}
+      - ./data:/var/lib/postgresql/data
