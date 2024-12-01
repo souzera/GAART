@@ -15,7 +15,7 @@ func Init() error {
 
 	host := "localhost"
 	user := "postgres"
-	password := "1234"
+	password := "postgres"
 	dbName := "gaart"
 	port := "5432"
 	sslmode := "disable"

@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.1'
 
 services:
   postgres:
@@ -12,3 +12,5 @@ services:
       POSTGRES_DB: gaart
     volumes:
       - ./data:/var/lib/postgresql/data
+    
+      

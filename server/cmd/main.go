@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/souzera/GAART/config"
+	"github.com/souzera/GAART/router"
 )
 
 var (
@@ -9,7 +10,12 @@ var (
 )
 
 func main() {
-	logger = *config.NewLogger("GAART")
+	logger = *config.GetLogger("GAART")
 
-	logger.Infof("hello world")
+	err := config.Init()
+	if err != nil {
+		logger.Errorf("Error initializing the application: %v", err)
+	}
+
+	router.Initialize()
 }
