@@ -16,8 +16,16 @@ func initializeRoutes(router *gin.Engine) {
 				"message": "pong",
 			})
 		})
+
+		// Usuários
+		v1.POST("/usuario", handler.CriarUsuario)
+
+		// Animais
+
 		v1.GET("/animais", handler.ListarAnimais)
 		v1.POST("/animal", handler.CriarAnimal)
+
+		// Tutores
 	}
 
 }

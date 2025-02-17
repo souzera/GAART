@@ -9,13 +9,15 @@ import (
 
 func ListarAnimais(contexto *gin.Context) {
 
-	animais := []schemas.Animal{}
+	animals := []schemas.Animal{}
 
-	if err := db.Find(&animais).Error; err != nil {
+	logger.Info("ListarAnimais", animals)
+
+	if err := db.Find(&animals).Error; err != nil {
 		sendError(contexto, http.StatusInternalServerError, "Error ao buscar animais")
 	}
 
-	sendSucess(contexto, "listar-animais", animais)
+	sendSucess(contexto, "listar-animais", animals)
 }
 
 func validarCriarAnimalRequest(request schemas.CriarAnimalRequest) error {
@@ -41,16 +43,16 @@ func CriarAnimal(contexto *gin.Context) {
 	}
 
 	animal := schemas.Animal{
-		Nome:     request.Nome,
-		Idade:    request.Idade,
-		Especie:  request.Especie,
-		Porte:    request.Porte,
-		Foto:     request.Foto,
-		Sexo:     request.Sexo,
-		Adotado:  request.Adotado,
-		Castrado: request.Castrado,
-		Cidade:   request.Cidade,
-		Estado:   request.Estado,
+		Nome:         request.Nome,
+		DtNascimento: request.DtNascimento,
+		Especie:      request.Especie,
+		Porte:        request.Porte,
+		Foto:         request.Foto,
+		Sexo:         request.Sexo,
+		Adotado:      request.Adotado,
+		Castrado:     request.Castrado,
+		Cidade:       request.Cidade,
+		Estado:       request.Estado,
 	}
 
 	if err := db.Create(&animal).Error; err != nil {

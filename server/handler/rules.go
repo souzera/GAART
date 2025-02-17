@@ -13,3 +13,11 @@ func errorUniqueViolation(param string) error {
 func errorNotFound(param string) error {
 	return fmt.Errorf("parametro %s não encontrado", param)
 }
+
+func errorInvalid(param string) error {
+	return fmt.Errorf("parametro %s inválido", param)
+}
+
+func errorCustomMessage(message string) error {
+	return fmt.Errorf(message)
+}

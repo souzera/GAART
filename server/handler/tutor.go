@@ -18,3 +18,10 @@ func ListarTutores(contexto *gin.Context) {
 
 	sendSucess(contexto, "listar-tutores", tutores)
 }
+
+func CriarTutor(contexto *gin.Context) {
+
+	request := schemas.CriarTutorRequest{}
+
+	logger.Infof("CriarTutor: %v", request)
+}
