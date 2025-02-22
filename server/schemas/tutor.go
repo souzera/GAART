@@ -8,25 +8,27 @@ import (
 )
 
 type Tutor struct {
-	gorm.Model
-	ID        uuid.UUID
-	CreatedAt time.Time `json:"createdAt"`
-	UpdatedAt time.Time `json:"updatedAt"`
-	DeletedAt time.Time `json:"deteledAt,omitempty"`
-	UsuarioID uuid.UUID `json:"usuarioId"`
-	Nome      string    `json:"nome"`
-	Contato   string    `json:"contato"`
-	Email     string    `json:"email"`
-	Endereco  string    `json:"endereco"`
-	Reputacao float32   `json:"reputacao"`
+	ID        uuid.UUID      `gorm:"type:uuid;default:gen_random_uuid();primaryKey"`
+	CreatedAt time.Time      `json:"created_at"`
+	UpdatedAt time.Time      `json:"updated_at"`
+	DeletedAt gorm.DeletedAt `gorm:"index" json:"deleted_at,omitempty"`
+
+	UsuarioID uuid.UUID `gorm:"type:uuid;not null" json:"usuario_id"`
+	Usuario   Usuario   `gorm:"foreignKey:UsuarioID" json:"usuario,omitempty"`
+
+	EnderecoID uuid.UUID `gorm:"type:uuid;" json:"endereco_id"`
+	Endereco   Endereco  `gorm:"foreignKey: EnderecoID" json:"endereco"`
+
+	Nome      string  `gorm:"not null" json:"nome"`
+	Reputacao float32 `gorm:"default:5" json:"reputacao"`
+
+	Animais []Animal `gorm:"foreignKey:TutorID" json:"animais,omitempty"`
 }
 
 // REQUESTS
 type CriarTutorRequest struct {
 	UsuarioID uuid.UUID `json:"usuarioId" binding:"required"`
 	Nome      string    `json:"nome" binding:"required"`
-	Contato   string    `json:"contato" binding:"required"`
-	Email     string    `json:"email" binding:"required"`
-	Endereco  string    `json:"endereco" binding:"required"`
-	Reputacao float32   `json:"reputacao" binding:"required"`
+	Email     string    `json:"email"`
+	Endereco  string    `json:"endereco"`
 }

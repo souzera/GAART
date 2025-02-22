@@ -9,33 +9,25 @@ import (
 
 type Animal struct {
 	gorm.Model
-	ID           uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4()";primaryKey`
-	CreatedAt    time.Time `json:"createdAt"`
-	UpdatedAt    time.Time `json:"updatedAt"`
-	DeletedAt    time.Time `json:"deteledAt,omitempty"`
-	Nome         string    `json:"nome"`
-	DtNascimento time.Time `json:"dtNascimento"`
-	Especie      string    `json:"especie"`
-	Porte        string    `json:"porte"`
-	Foto         string    `json:"foto"`
-	Sexo         int       `json:"sexo"`
-	Adotado      bool      `json:"adotado"`
-	Castrado     bool      `json:"castrado"`
-	Cidade       string    `json:"cidade"`
-	Estado       string    `json:"estado"`
+	ID        uuid.UUID `gorm:"type:uuid;default:gen_random_uuid();primaryKey"`
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
+	DeletedAt time.Time `json:"deteledAt,omitempty"`
+	Nome      string    `json:"nome"`
+
+	RacaID uuid.UUID `json:"racaId"`
+	Raca   Raca      `json:"raca"`
+
+	Tutor *Tutor `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
+
+	DtNascimento time.Time `json:"nascimento"`
+	Sexo         int       `json:"sexo" default:"0"`
+	Castrado     bool      `json:"castrado" default:"false"`
+	Vacinado     bool      `json:"vacinado" default:"false"`
+	// TODO: Adicionar fotos
 }
 
 // REQUESTS
 
 type CriarAnimalRequest struct {
-	Nome         string    `json:"nome" binding:"required"`
-	DtNascimento time.Time `json:"nascimento" binding:"required"`
-	Especie      string    `json:"especie" binding:"required"`
-	Porte        string    `json:"porte" binding:"required"`
-	Foto         string    `json:"foto"`
-	Sexo         int       `json:"sexo" binding:"required"`
-	Adotado      bool      `json:"adotado" default:"false"`
-	Castrado     bool      `json:"castrado" default:"false"`
-	Cidade       string    `json:"cidade" binding:"required"`
-	Estado       string    `json:"estado" binding:"required"`
 }
