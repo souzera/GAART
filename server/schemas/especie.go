@@ -13,8 +13,15 @@ type Especie struct {
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`
 	DeletedAt time.Time `json:"deteledAt,omitempty"`
+	Nome      string    `json:"nome"`
+	Genero    string    `json:"genero"`
+	Domesitco bool      `gorm:"default:true" json:"domestico"`
+}
 
-	Nome      string `json:"nome"`
+// REQUESTs
+
+type CriarEspecieRequest struct {
+	Nome      string `json:"nome" binding:"required"`
 	Genero    string `json:"genero"`
-	Domesitco bool   `json:"domestico"`
+	Domestico bool   `json:"domestico"`
 }

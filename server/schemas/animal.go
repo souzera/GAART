@@ -22,12 +22,19 @@ type Animal struct {
 
 	DtNascimento time.Time `json:"nascimento"`
 	Sexo         int       `json:"sexo" default:"0"`
-	Castrado     bool      `json:"castrado" default:"false"`
-	Vacinado     bool      `json:"vacinado" default:"false"`
+	Castrado     bool      `gorm:"default:false" json:"castrado"`
+	Vacinado     bool      `gorm:"default:false" json:"vacinado"`
 	// TODO: Adicionar fotos
 }
 
 // REQUESTS
 
 type CriarAnimalRequest struct {
+	Nome         string    `json:"nome" binding:"required"`
+	Sexo         int       `json:"sexo" binding:"required"`
+	Raca         string    `json:"raca"`
+	Tutor        string    `json:"tutor"`
+	DtNascimento time.Time `json:"nascimento"`
+	Castrado     bool      `json:"castrado"`
+	Vacinado     bool      `json:"vacinado"`
 }

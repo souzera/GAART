@@ -27,8 +27,9 @@ type Tutor struct {
 
 // REQUESTS
 type CriarTutorRequest struct {
-	UsuarioID uuid.UUID `json:"usuarioId" binding:"required"`
-	Nome      string    `json:"nome" binding:"required"`
-	Email     string    `json:"email"`
-	Endereco  string    `json:"endereco"`
+	UsuarioID string  `json:"usuarioId" binding:"required"`
+	Nome      string  `json:"nome" binding:"required"`
+	Email     string  `json:"email"`
+	Endereco  string  `json:"endereco"`
+	Reputacao float32 `json:"reputacao"`
 }

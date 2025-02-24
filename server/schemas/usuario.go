@@ -21,6 +21,8 @@ type CriarUsuarioRequest struct {
 	Login          string `json:"login" binding:"required"`
 	Senha          string `json:"senha" binding:"required"`
 	ConfirmarSenha string `json:"confirmar_senha" binding:"required"`
+	Email          string `json:"email"`
+	Telefone       string `json:"telefone"`
 }
 
 // REQUESTS
