@@ -26,6 +26,9 @@ func initializeRoutes(router *gin.Engine) {
 		v1.POST("/animal", handler.CriarAnimal)
 
 		// Tutores
+
+		v1.GET("/tutores", handler.ListarTutores)
+		v1.POST("/tutor", handler.CriarTutor)
 	}
 
 }
