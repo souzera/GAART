@@ -9,12 +9,13 @@ import (
 
 type Usuario struct {
 	gorm.Model
-	ID       uuid.UUID `gorm:"type:uuid;default:gen_random_uuid();primaryKey"`
-	Login    string    `gorm:"unique; not null"`
-	Senha    string    `gorm:"not null"`
-	Email    string    `gorm:"unique;default:null"`
-	Telefone string    `gorm:"unique;default:null"`
-	Ativo    bool      `gorm:"default:true"`
+	ID        uuid.UUID      `gorm:"type:uuid;default:gen_random_uuid();primaryKey"`
+
+	Login     string         `gorm:"unique; not null"`
+	Senha     string         `gorm:"not null"`
+	Email     string         `gorm:"unique;default:null"`
+	Telefone  string         `gorm:"unique;default:null"`
+	Ativo     bool           `gorm:"default:true"`
 }
 
 type CriarUsuarioRequest struct {

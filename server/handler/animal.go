@@ -11,7 +11,7 @@ func ListarAnimais(contexto *gin.Context) {
 
 	animals := []schemas.Animal{}
 
-	if err := db.Find(&animals).Error; err != nil {
+	if err := db.Preload("Raca.Especie").Find(&animals).Error; err != nil {
 		sendError(contexto, http.StatusInternalServerError, "Error ao buscar animais")
 	}
 
@@ -22,6 +22,17 @@ func validarCriarAnimalRequest(request schemas.CriarAnimalRequest) error {
 	if request.Nome == "" {
 		return errorParamRequired("nome")
 	}
+	if request.Raca == "" {
+		return errorParamRequired("raca")
+	}
+	if !(request.Sexo == 0 || request.Sexo == 1) {
+		return errorCustomMessage("valor inválido para o campo sexo")
+	}
+
+	if db.Where("id = ?", request.Raca).First(&schemas.Raca{}).Error != nil {
+		return errorItemNotFound("raça")
+	}
+
 	return nil
 }
 
@@ -37,7 +48,14 @@ func CriarAnimal(contexto *gin.Context) {
 		return
 	}
 
-	animal := schemas.Animal{}
+	raca := schemas.Raca{}
+	db.Where("id = ?", request.Raca).First(&raca)
+
+	animal := schemas.Animal{
+		Nome:   request.Nome,
+		RacaID: raca.ID,
+		Sexo:   request.Sexo,
+	}
 
 	if err := db.Create(&animal).Error; err != nil {
 		logger.Errorf("[CREATE-ANIMAL] Error: %v", err)

@@ -18,6 +18,10 @@ func errorInvalid(param string) error {
 	return fmt.Errorf("parametro %s inválido", param)
 }
 
-func errorCustomMessage(message string) error {
-	return fmt.Errorf(message)
+func errorItemNotFound(name string) error {
+	return fmt.Errorf("item %s não foi encontrado ou não existe", name)
+}
+
+func errorCustomMessage(messagem string) error {
+	return fmt.Errorf("ERROR: %s", messagem)
 }

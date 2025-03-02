@@ -20,6 +20,16 @@ func initializeRoutes(router *gin.Engine) {
 		// Usuários
 		v1.POST("/usuario", handler.CriarUsuario)
 
+		// Espécies
+
+		v1.GET("/especies", handler.ListarEspecies)
+		v1.POST("/especie", handler.CriarEspecie)
+
+		// Raças
+
+		v1.GET("/racas", handler.ListarRacas)
+		v1.POST("/raca", handler.CriarRaca)
+
 		// Animais
 
 		v1.GET("/animais", handler.ListarAnimais)

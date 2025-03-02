@@ -38,8 +38,20 @@ func MigrateAdmin(db *gorm.DB) error {
 	return db.AutoMigrate(&schemas.Admin{})
 }
 
+func MigrateEndereco(db *gorm.DB) error {
+	return db.AutoMigrate((&schemas.Endereco{}))
+}
+
 func MigrateTutor(db *gorm.DB) error {
 	return db.AutoMigrate(&schemas.Tutor{})
+}
+
+func MigrateEspecie(db *gorm.DB) error {
+	return db.AutoMigrate(&schemas.Especie{})
+}
+
+func MigrateRaca(db *gorm.DB) error {
+	return db.AutoMigrate(&schemas.Raca{})
 }
 
 func MigrateAnimal(db *gorm.DB) error {
@@ -60,7 +72,19 @@ func MigrateAll(db *gorm.DB) error {
 		return err
 	}
 
+	if err := MigrateEndereco(db); err != nil {
+		return err
+	}
+
 	if err := MigrateTutor(db); err != nil {
+		return err
+	}
+
+	if err := MigrateEspecie(db); err != nil {
+		return err
+	}
+
+	if err := MigrateRaca(db); err != nil {
 		return err
 	}
 

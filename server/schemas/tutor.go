@@ -1,19 +1,15 @@
 package schemas
 
 import (
-	"time"
-
 	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
 
 type Tutor struct {
-	ID        uuid.UUID      `gorm:"type:uuid;default:gen_random_uuid();primaryKey"`
-	CreatedAt time.Time      `json:"created_at"`
-	UpdatedAt time.Time      `json:"updated_at"`
-	DeletedAt gorm.DeletedAt `gorm:"index" json:"deleted_at,omitempty"`
+	gorm.Model
+	ID uuid.UUID `gorm:"type:uuid;default:gen_random_uuid();primaryKey"`
 
-	UsuarioID uuid.UUID `gorm:"type:uuid;not null" json:"usuario_id"`
+	UsuarioID uuid.UUID `gorm:"type:uuid;" json:"usuario_id"`
 	Usuario   Usuario   `gorm:"foreignKey:UsuarioID" json:"usuario,omitempty"`
 
 	EnderecoID uuid.UUID `gorm:"type:uuid;" json:"endereco_id"`

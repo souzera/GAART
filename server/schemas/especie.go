@@ -1,7 +1,6 @@
 package schemas
 
 import (
-	"time"
 
 	"github.com/google/uuid"
 	"gorm.io/gorm"
@@ -10,9 +9,7 @@ import (
 type Especie struct {
 	gorm.Model
 	ID        uuid.UUID `gorm:"type:uuid;default:gen_random_uuid();primaryKey"`
-	CreatedAt time.Time `json:"createdAt"`
-	UpdatedAt time.Time `json:"updatedAt"`
-	DeletedAt time.Time `json:"deteledAt,omitempty"`
+
 	Nome      string    `json:"nome"`
 	Genero    string    `json:"genero"`
 	Domesitco bool      `gorm:"default:true" json:"domestico"`
@@ -25,3 +22,6 @@ type CriarEspecieRequest struct {
 	Genero    string `json:"genero"`
 	Domestico bool   `json:"domestico"`
 }
+
+// RESPONSEs
+
