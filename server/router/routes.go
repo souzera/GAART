@@ -24,6 +24,7 @@ func initializeRoutes(router *gin.Engine) {
 
 		v1.GET("/especies", handler.ListarEspecies)
 		v1.POST("/especie", handler.CriarEspecie)
+		v1.PATCH("/especie", handler.AtualizarEspecie)
 
 		// Raças
 
@@ -33,7 +34,9 @@ func initializeRoutes(router *gin.Engine) {
 		// Animais
 
 		v1.GET("/animais", handler.ListarAnimais)
+		v1.GET("/animal", handler.BuscarAnimal)
 		v1.POST("/animal", handler.CriarAnimal)
+		v1.PATCH("/animal", handler.AtualizarAnimal)
 
 		// Tutores
 

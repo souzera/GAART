@@ -28,11 +28,21 @@ type Animal struct {
 // REQUESTS
 
 type CriarAnimalRequest struct {
-	Nome         string    `json:"nome" binding:"required"`
-	Sexo         int       `json:"sexo" binding:"required"`
-	Raca         string    `json:"raca" binding:"required"`
-	Tutor        string    `json:"tutor"`
-	DtNascimento time.Time `json:"nascimento"`
-	Castrado     bool      `json:"castrado"`
-	Vacinado     bool      `json:"vacinado"`
+	Nome         string  `json:"nome" binding:"required"`
+	Sexo         int     `json:"sexo" binding:"required"`
+	Raca         string  `json:"raca" binding:"required"`
+	Tutor        *string `json:"tutor"`
+	DtNascimento *string `json:"nascimento"`
+	Castrado     *bool   `json:"castrado"`
+	Vacinado     *bool   `json:"vacinado"`
+}
+
+type AtualizarAnimalRequest struct {
+	Nome         *string `json:"nome"`
+	Sexo         *int    `json:"sexo"`
+	Raca         *string `json:"raca"`
+	Tutor        *string `json:"tutor"`
+	DtNascimento *string `json:"nascimento"`
+	Castrado     *bool   `json:"castrado"`
+	Vacinado     *bool   `json:"vacinado"`
 }
