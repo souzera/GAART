@@ -1,4 +1,11 @@
-# BackEnd
+# Guia de Instalação
+
+## Pre-Requisitos
+
+Para executar o projeto, por padrão, utilizasse:
+
+- Docker
+- Go
 
 ## Inicializando o Bando de dados
 
@@ -12,8 +19,56 @@ sudo docker compose up
     - PGAdmin
     - Dbeaver
 
-3 - Criar extenção do UUID no banco de dados executando o comando SQL a seguir
+## Executando o projeto
 
-```sql
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+Para executar o projeto basta utilizar o comando
+
+```bash
+go run cmd/main.go
 ```
+
+# Entidades
+
+1. **Usuarios**: a entidade irá auxiliar na construção da autenticação do projeto
+2. **Admins**: responsáveis por fazer o controle de adoções (ONGs, Canis, Secretarias, Encarregados, ...)
+3. **Tutores**: usuários que irão demonstrar o interesse em adotar um animal.
+4. **Endereço**: endereços que serão incorporados aos tutores
+5. **Especie**: a especie do animal que poderá ser adotado
+6. **Raça**: raça do animal que poderá ser adotado
+7. **Animal**: animal que está disponivel para adoção
+
+![modelagem](docs/modelagem_gaart.png)
+
+# Rotas
+
+1. **METADATA**
+
+    - `ping`: retorna pong
+    - `version`: retorna versão do recurso
+
+2. **Usuário**
+
+    - `usuario`: criar um usuario
+
+3. **Especies**
+
+    - [GET] `especies`: retorna uma listagem de todas as especies cadastradas
+    - [POST] `especie`: cria uma nova instancia de especie
+    - [PATCH] `especie/:id`: atualiza os dados de uma especie
+
+4. **Raças**
+
+    - [GET] `racas`: retorna uma listagem com todas as raças cadastradas
+    - [POST] `raca`: cria uma nova instancia de raça
+    - []
+
+5. **Animais**
+
+    - [GET] `animais`: retorna uma listagem de todos os animais cadastrados
+    - [POST] `animal`: cria uma nova instancia de animal
+    - [PATCH] `animal/:id`: atualiza os dados de um animal
+
+6. **Tutor**
+
+    - [GET] `tutores`: retorna uma listagem de todos os tutores
+    - [POST] `tutor`: cria uma nova instancia de tutor
