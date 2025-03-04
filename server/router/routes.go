@@ -16,6 +16,11 @@ func initializeRoutes(router *gin.Engine) {
 				"message": "pong",
 			})
 		})
+		v1.GET("/version", func(contexto *gin.Context) {
+			contexto.JSON(200, gin.H{
+				"version": "1.0.0",
+			})
+		})
 
 		// Usuários
 		v1.POST("/usuario", handler.CriarUsuario)
@@ -30,6 +35,7 @@ func initializeRoutes(router *gin.Engine) {
 
 		v1.GET("/racas", handler.ListarRacas)
 		v1.POST("/raca", handler.CriarRaca)
+		v1.PATCH("/raca", handler.AtualizarRaca)
 
 		// Animais
 
@@ -42,6 +48,7 @@ func initializeRoutes(router *gin.Engine) {
 
 		v1.GET("/enderecos", handler.ListarEnderecos)
 		v1.POST("/endereco", handler.CriarEndereco)
+		v1.PATCH("/endereco", handler.AtualizarEndereco)
 
 		// Tutores
 

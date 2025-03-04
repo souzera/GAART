@@ -60,15 +60,22 @@ go run cmd/main.go
 
     - [GET] `racas`: retorna uma listagem com todas as raças cadastradas
     - [POST] `raca`: cria uma nova instancia de raça
-    - []
+    - [PATCH] `raca/:id`: atualiza os dados de uma raça
 
 5. **Animais**
 
     - [GET] `animais`: retorna uma listagem de todos os animais cadastrados
+    - [GET] `animais/:id`: realiza uma busca de um animal pelo id
     - [POST] `animal`: cria uma nova instancia de animal
     - [PATCH] `animal/:id`: atualiza os dados de um animal
 
-6. **Tutor**
+6. **Endereços**
+
+    - [GET] `enderecos`: retorna uma listagem de todos os endereços cadastrados
+    - [POST] `endereco`: cria uma nova instancia de endereço
+    - [PATCH] `endereco/:id`: atualiza os dados de um endereço
+
+7. **Tutor**
 
     - [GET] `tutores`: retorna uma listagem de todos os tutores
     - [POST] `tutor`: cria uma nova instancia de tutor

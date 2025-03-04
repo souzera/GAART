@@ -24,6 +24,12 @@ type CriarRacaRequest struct {
 	Especie string `json:"especie" binding:"required"`
 }
 
+type AtualizarRacaRequest struct {
+	Nome    *string `json:"nome"`
+	Porte   *string `json:"porte"`
+	Especie *string `json:"especie"`
+}
+
 // RESPONSEs
 
 type RacaRensponse struct {
