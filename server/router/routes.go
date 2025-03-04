@@ -54,6 +54,11 @@ func initializeRoutes(router *gin.Engine) {
 
 		v1.GET("/tutores", handler.ListarTutores)
 		v1.POST("/tutor", handler.CriarTutor)
+
+		// Adoções
+
+		v1.GET("/adocoes", handler.ListarAdocoes)
+		v1.POST("/adocao", handler.CriarAdocao)
 	}
 
 }
