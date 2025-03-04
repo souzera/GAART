@@ -12,6 +12,8 @@ func ListarAnimais(contexto *gin.Context) {
 
 	animals := []schemas.Animal{}
 
+	// TODO: devo serializar o tutor?
+	// verificar o funcionamento do Joins e criar um struct para o retorno
 	if err := db.Preload("Raca.Especie").Find(&animals).Error; err != nil {
 		sendError(contexto, http.StatusInternalServerError, "Error ao buscar animais")
 	}
