@@ -12,7 +12,7 @@ type Tutor struct {
 	UsuarioID uuid.UUID `gorm:"type:uuid;" json:"usuario_id"`
 	Usuario   Usuario   `gorm:"foreignKey:UsuarioID" json:"usuario,omitempty"`
 
-	EnderecoID uuid.UUID `gorm:"type:uuid;" json:"endereco_id"`
+	EnderecoID *uuid.UUID `gorm:"type:uuid;" json:"endereco_id"`
 	Endereco   Endereco  `gorm:"foreignKey: EnderecoID" json:"endereco"`
 
 	Nome      string  `gorm:"not null" json:"nome"`
@@ -23,9 +23,8 @@ type Tutor struct {
 
 // REQUESTS
 type CriarTutorRequest struct {
-	UsuarioID string  `json:"usuarioId" binding:"required"`
-	Nome      string  `json:"nome" binding:"required"`
-	Email     string  `json:"email"`
-	Endereco  string  `json:"endereco"`
-	Reputacao float32 `json:"reputacao"`
+	Usuario   string   `json:"usuario" binding:"required"`
+	Nome      string   `json:"nome" binding:"required"`
+	Endereco  *string  `json:"endereco"`
+	Reputacao *float32 `json:"reputacao"`
 }

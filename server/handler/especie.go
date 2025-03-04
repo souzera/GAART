@@ -11,8 +11,6 @@ func ListarEspecies(contexto *gin.Context) {
 
 	especies := []schemas.Especie{}
 
-	logger.Info("[LISTAR-ESPECIES] Buscando as espécies", db.Find(&especies))
-
 	if err := db.Find(&especies).Error; err != nil {
 		logger.Errorf("[LISTAR-ESPECIES] Error: %v", err)
 		sendError(contexto, http.StatusInternalServerError, "Erro ao buscar as espécies")

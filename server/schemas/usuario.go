@@ -9,21 +9,21 @@ import (
 
 type Usuario struct {
 	gorm.Model
-	ID        uuid.UUID      `gorm:"type:uuid;default:gen_random_uuid();primaryKey"`
+	ID uuid.UUID `gorm:"type:uuid;default:gen_random_uuid();primaryKey"`
 
-	Login     string         `gorm:"unique; not null"`
-	Senha     string         `gorm:"not null"`
-	Email     string         `gorm:"unique;default:null"`
-	Telefone  string         `gorm:"unique;default:null"`
-	Ativo     bool           `gorm:"default:true"`
+	Login    string `gorm:"unique; not null"`
+	Senha    string `gorm:"not null"`
+	Email    string `gorm:"unique;default:null"`
+	Telefone string `gorm:"unique;default:null"`
+	Ativo    bool   `gorm:"default:true"`
 }
 
 type CriarUsuarioRequest struct {
-	Login          string `json:"login" binding:"required"`
-	Senha          string `json:"senha" binding:"required"`
-	ConfirmarSenha string `json:"confirmar_senha" binding:"required"`
-	Email          string `json:"email"`
-	Telefone       string `json:"telefone"`
+	Login          string  `json:"login" binding:"required"`
+	Senha          string  `json:"senha" binding:"required"`
+	ConfirmarSenha string  `json:"confirmar_senha" binding:"required"`
+	Email          *string `json:"email"`
+	Telefone       *string `json:"telefone"`
 }
 
 // REQUESTS

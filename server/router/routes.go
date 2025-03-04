@@ -38,6 +38,11 @@ func initializeRoutes(router *gin.Engine) {
 		v1.POST("/animal", handler.CriarAnimal)
 		v1.PATCH("/animal", handler.AtualizarAnimal)
 
+		// Endereços
+
+		v1.GET("/enderecos", handler.ListarEnderecos)
+		v1.POST("/endereco", handler.CriarEndereco)
+
 		// Tutores
 
 		v1.GET("/tutores", handler.ListarTutores)

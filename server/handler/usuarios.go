@@ -25,8 +25,7 @@ type ListarUsuarioResponse struct {
 	Data    []schemas.UsuarioResponse
 }
 
-
-func validarCriarUsuarioRequest(request schemas.CriarUsuarioRequest) error{
+func validarCriarUsuarioRequest(request schemas.CriarUsuarioRequest) error {
 	if request.Login == "" {
 		return errorParamRequired("login")
 	}
@@ -42,7 +41,7 @@ func validarCriarUsuarioRequest(request schemas.CriarUsuarioRequest) error{
 	return nil
 }
 
-func CriarUsuario(contexto *gin.Context){
+func CriarUsuario(contexto *gin.Context) {
 
 	request := schemas.CriarUsuarioRequest{}
 
@@ -65,6 +64,14 @@ func CriarUsuario(contexto *gin.Context){
 	usuario := schemas.Usuario{
 		Login: request.Login,
 		Senha: hash,
+	}
+
+	if request.Email != nil {
+		usuario.Email = *request.Email
+	}
+
+	if request.Telefone != nil {
+		usuario.Telefone = *request.Telefone
 	}
 
 	if err := db.Create(&usuario).Error; err != nil {
