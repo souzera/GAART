@@ -18,6 +18,7 @@ type Usuario struct {
 	Ativo    bool   `gorm:"default:true"`
 }
 
+// REQUESTS
 type CriarUsuarioRequest struct {
 	Login          string  `json:"login" binding:"required"`
 	Senha          string  `json:"senha" binding:"required"`
@@ -26,7 +27,27 @@ type CriarUsuarioRequest struct {
 	Telefone       *string `json:"telefone"`
 }
 
-// REQUESTS
+type LoginUsuarioRequest struct {
+	Login string `json:"login" binding:"required"`
+	Senha string `json:"senha" binding:"required"`
+}
+
+type AtualizarUsuarioRequest struct {
+	Login    *string `json:"login"`
+	Senha    *string `json:"senha"`
+	Email    *string `json:"email"`
+	Telefone *string `json:"telefone"`
+	Ativo    *bool   `json:"ativo"`
+}
+
+type RedefinirSenhaRequest struct {
+	Token              string `json:"token" binding:"required"`
+	NovaSenha          string `json:"nova" binding:"required"`
+	ConfirmarNovaSenha string `json:"confirmar" binding:"required"`
+}
+
+
+// RESPONSES
 type UsuarioResponse struct {
 	ID        uuid.UUID `json:"id"`
 	CreatedAt time.Time `json:"created_at"`
@@ -34,4 +55,8 @@ type UsuarioResponse struct {
 	DeletedAt time.Time `json:"deleted_at,omitempty"`
 	Login     string    `json:"login"`
 	Senha     string    `json:"-"`
+}
+
+type LoginUsuarioResponse struct {
+	Token string `json:"token"`
 }

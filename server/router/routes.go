@@ -3,10 +3,12 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/souzera/GAART/handler"
+	"github.com/souzera/GAART/middleware"
 )
 
 func initializeRoutes(router *gin.Engine) {
 
+	middleware.InitializeMiddleware()
 	handler.InitializeHandler()
 
 	v1 := router.Group("/api/v1/")
@@ -24,6 +26,9 @@ func initializeRoutes(router *gin.Engine) {
 
 		// Usuários
 		v1.POST("/usuario", handler.CriarUsuario)
+		v1.POST("/login", handler.LoginUsuario)
+		v1.POST("/logout", handler.LogoutUsuario)
+		v1.PATCH("/redefinir-senha", handler.RedefinirSenhaUsuario)
 
 		// Espécies
 
@@ -39,7 +44,7 @@ func initializeRoutes(router *gin.Engine) {
 
 		// Animais
 
-		v1.GET("/animais", handler.ListarAnimais)
+		v1.GET("/animais", middleware.RequireAuth, handler.ListarAnimais)
 		v1.GET("/animal", handler.BuscarAnimal)
 		v1.POST("/animal", handler.CriarAnimal)
 		v1.PATCH("/animal", handler.AtualizarAnimal)

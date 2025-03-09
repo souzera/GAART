@@ -1,10 +1,12 @@
 package util
 
-import "golang.org/x/crypto/bcrypt"
+import (
+	"golang.org/x/crypto/bcrypt"
+)
 
-
-func VerificarSenha(senha, hash string) error {
-	return bcrypt.CompareHashAndPassword([]byte(hash), []byte(senha))
+func VerificarSenha(senha, hash string) bool {
+	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(senha))
+	return err == nil
 }
 
 func HashSenha(senha string) (string, error) {
