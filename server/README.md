@@ -1,4 +1,42 @@
-# Guia de Instalação
+
+# Backend
+
+Implementação do **backend** da aplicação, que inclui uma **API RESTful** e um **CLI** (Interface de Linha de Comando) para interagir com o banco de dados.
+
+
+1. **API RESTful**:  
+   Uma interface programática que permite integrações com aplicativos móveis, sites ou outros sistemas. A API fornece endpoints para gerenciar pets, usuários, adoções e muito mais.
+
+2. **CLI (Interface de Linha de Comando)**:  
+   Uma ferramenta poderosa para desenvolvedores e administradores interagirem diretamente com o banco de dados, executando tarefas como cadastro de pets, listagem de adoções e gerenciamento de usuários.
+
+---
+
+## **Funcionalidades do Backend**
+
+### **API RESTful**
+- **Cadastro de Pets**: Registre novos pets disponíveis para adoção, incluindo informações como nome, espécie, raça, idade e foto.
+- **Listagem de Pets**: Recupere a lista de pets cadastrados, com filtros por espécie, idade ou status de adoção.
+- **Gerenciamento de Usuários**: Cadastre e gerencie usuários, incluindo adotantes e administradores.
+- **Processo de Adoção**: Registre adoções, vinculando pets a usuários e atualizando o status do pet.
+- **Autenticação e Autorização**: Proteja os endpoints com autenticação JWT e controle de acesso baseado em roles.
+
+### **CLI**
+- **Cadastro Rápido**: Adicione pets e usuários diretamente pelo terminal.
+- **Consultas**: Liste pets, usuários ou adoções com filtros personalizados.
+- **Gerenciamento**: Atualize ou remova registros do banco de dados.
+- **Automação**: Execute tarefas repetitivas ou em lote, como migrações de banco de dados ou geração de relatórios.
+
+---
+
+## **Tecnologias Utilizadas**
+
+- **Linguagem**: Go (Golang)
+- **Banco de Dados**: PostgreSQL (com GORM para ORM)
+- **API**: RESTful, com autenticação JWT
+- **CLI**: Cobra (biblioteca para criação de CLIs em Go)
+
+---
 
 ## Pre-Requisitos
 
@@ -21,11 +59,21 @@ sudo docker compose up
 
 ## Executando o projeto
 
-Para executar o projeto basta utilizar o comando
+- Para executar a **API** projeto basta utilizar o comando
 
 ```bash
-go run cmd/main.go
+go run cmd/api/main.go
 ```
+
+O uso do cli pode ser utilizado, com o build do executavel ou utilizando o caminho do arquivo principal com a inclusão dos comandos
+
+```bash
+go run cmd/cli/main.go ping
+```
+
+- **Lista de Comandos**
+
+- **create-admin**: criar um usuário administrador
 
 # Entidades
 
