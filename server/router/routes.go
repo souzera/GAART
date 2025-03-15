@@ -27,8 +27,8 @@ func initializeRoutes(router *gin.Engine) {
 		// Usuários
 		v1.POST("/usuario", handler.CriarUsuario)
 		v1.POST("/login", handler.LoginUsuario)
-		v1.POST("/logout", handler.LogoutUsuario)
-		v1.PATCH("/redefinir-senha", handler.RedefinirSenhaUsuario)
+		v1.POST("/logout", middleware.RequireAuth, handler.LogoutUsuario) 
+		v1.PATCH("/redefinir-senha",middleware.RequireAuth, handler.RedefinirSenhaUsuario)
 
 		// Espécies
 
@@ -38,32 +38,32 @@ func initializeRoutes(router *gin.Engine) {
 
 		// Raças
 
-		v1.GET("/racas", handler.ListarRacas)
-		v1.POST("/raca", handler.CriarRaca)
-		v1.PATCH("/raca", handler.AtualizarRaca)
+		v1.GET("/racas", handler.ListarRacas) 
+		v1.POST("/raca", handler.CriarRaca) // TODO: middleware.AdminPermissions
+		v1.PATCH("/raca", handler.AtualizarRaca) // TODO: middleware.AdminPermissions
 
 		// Animais
 
-		v1.GET("/animais", middleware.RequireAuth, handler.ListarAnimais)
+		v1.GET("/animais", handler.ListarAnimais)
 		v1.GET("/animal", handler.BuscarAnimal)
-		v1.POST("/animal", handler.CriarAnimal)
-		v1.PATCH("/animal", handler.AtualizarAnimal)
+		v1.POST("/animal", middleware.AdminPermissions, handler.CriarAnimal) 
+		v1.PATCH("/animal", middleware.AdminPermissions, handler.AtualizarAnimal) 
 
 		// Endereços
 
-		v1.GET("/enderecos", handler.ListarEnderecos)
-		v1.POST("/endereco", handler.CriarEndereco)
-		v1.PATCH("/endereco", handler.AtualizarEndereco)
+		v1.GET("/enderecos", handler.ListarEnderecos) // TODO: middleware.AdminPermissions
+		v1.POST("/endereco", middleware.RequireAuth, handler.CriarEndereco) 
+		v1.PATCH("/endereco", middleware.RequireAuth, handler.AtualizarEndereco) 
 
 		// Tutores
 
-		v1.GET("/tutores", handler.ListarTutores)
+		v1.GET("/tutores", handler.ListarTutores) // TODO: middleware.AdminPermissions
 		v1.POST("/tutor", handler.CriarTutor)
 
 		// Adoções
 
-		v1.GET("/adocoes", handler.ListarAdocoes)
-		v1.POST("/adocao", handler.CriarAdocao)
+		v1.GET("/adocoes", handler.ListarAdocoes) // TODO: middleware.AdminPermissions
+		v1.POST("/adocao", handler.CriarAdocao) // TODO: middleware.AdminPermissions
 	}
 
 }

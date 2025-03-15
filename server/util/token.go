@@ -22,3 +22,33 @@ func GerarToken(id string) string {
 
 	return tokenString
 }
+
+func removerPrefixoToken(token string) string {
+	if len(token) < 7 {
+		return token
+	}
+	if token[:7] == "Bearer " {
+		return token[7:]
+	}
+	return token
+}
+
+func ValidarToken(tokenString string) (string, error) {
+
+	tokenString = removerPrefixoToken(tokenString)
+
+	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+		return []byte("secret"), nil
+	})
+
+	if err != nil {
+		return "", err
+	}
+
+	claims, ok := token.Claims.(jwt.MapClaims)
+	if !ok || !token.Valid {
+		return "", err
+	}
+
+	return claims["sub"].(string), nil
+}
