@@ -6,11 +6,11 @@
 
 ---
 
-# Frontend
+## Frontend
 
 ---
 
-# Backend
+## Backend
 
 Implementação do **backend** da aplicação, que inclui uma **API RESTful** e um **CLI** (Interface de Linha de Comando) para interagir com o banco de dados.
 
@@ -96,7 +96,7 @@ go run cmd/cli/main.go ping
 6. **Raça**: raça do animal que poderá ser adotado
 7. **Animal**: animal que está disponivel para adoção
 
-![modelagem](docs/modelagem_gaart.png)
+![modelagem](server/docs/modelagem_gaart.png)
 
 # Rotas
 
