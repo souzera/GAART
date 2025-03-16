@@ -9,14 +9,16 @@ import (
 var (
 	logger *config.Logger
 	db     *gorm.DB
-	cmd   *cobra.Command
+	cmd    *cobra.Command
 )
 
 func InitializeScripts() {
 	logger = config.GetLogger("GAART")
-	
+
+	logger.Info("Running CLI\n")
+
 	db = config.GetDB()
-	
+
 	cmd = &cobra.Command{
 		Use:   "gaart",
 		Short: "GAART is a tool to manage the GAART",
@@ -24,5 +26,3 @@ func InitializeScripts() {
 
 	initializeCobra(cmd)
 }
-
-

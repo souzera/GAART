@@ -9,8 +9,6 @@ import (
 
 func main() {
 
-	fmt.Println("Running CLI")
-
 	err := config.Init()
 	if err != nil {
 		fmt.Printf("Error initializing the application: %v", err)
