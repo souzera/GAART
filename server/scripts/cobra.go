@@ -4,6 +4,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	cmdCriarAdmin     *cobra.Command
+	cmdAtualizarAdmin *cobra.Command
+)
+
 func initializeCobra(rootCmd *cobra.Command) {
 
 	addCommands(rootCmd)
@@ -13,6 +18,22 @@ func initializeCobra(rootCmd *cobra.Command) {
 
 func addCommands(parent *cobra.Command) {
 
+	cmdCriarAdmin = &cobra.Command{
+		Use:   "create-admin",
+		Short: "Create an admin",
+		Run:   CriarAdmin,
+	}
+
+	cmdAtualizarAdmin = &cobra.Command{
+		Use:   "update-admin",
+		Short: "Update an admin",
+		Run:   AtualizarAdmin,
+	}
+
+	cmdAtualizarAdmin.Flags().StringP("login", "l", "", "Login para procurar o admin")
+	cmdAtualizarAdmin.MarkFlagRequired("login")
+	cmdAtualizarAdmin.Flags().StringP("nome", "n", "", "Novo nome do admin")
+
 	parent.AddCommand(
 		&cobra.Command{
 			Use:   "ping",
@@ -21,12 +42,8 @@ func addCommands(parent *cobra.Command) {
 				cmd.Println("pong")
 			},
 		},
-
-		&cobra.Command{
-			Use:   "create-admin",
-			Short: "Create an admin",
-			Run:   CriarAdmin,
-		},
+		cmdCriarAdmin,
+		cmdAtualizarAdmin,
 	)
 
 }

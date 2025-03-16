@@ -17,11 +17,8 @@ func validatePassword(password string) bool {
 	return true
 }
 
-func validateConfirmPassword(password, confirmPassword string) bool {
-	if password != confirmPassword {
-		return false
-	}
-	return true
+func validateConfirmPassword(password string, confirmPassword string) bool {
+	return password == confirmPassword
 }
 
 func validateLogin(login string) bool {
@@ -66,7 +63,7 @@ func CriarAdmin(cmd *cobra.Command, args []string) {
 	confirmPassword, _ := reader.ReadString('\n')
 	confirmPassword = strings.TrimSpace(confirmPassword)
 	for !validateConfirmPassword(password, confirmPassword) {
-		
+
 		cmd.Print("As senhas não correspondem. Tente novamente: ")
 		password, _ = reader.ReadString('\n')
 		password = strings.TrimSpace(password)
@@ -110,4 +107,38 @@ func CriarAdmin(cmd *cobra.Command, args []string) {
 	}
 
 	cmd.Println("Admin created successfully")
+}
+
+func AtualizarAdmin(cmd *cobra.Command, args []string) {
+	cmd.Println("\n[ ATUALIZAR ADMIN ]")
+
+	login := cmd.Flag("login").Value.String()
+	usuario := &schemas.Usuario{}
+
+	if db.Where("login = ?", login).First(&usuario).RowsAffected == 0 {
+		cmd.Println("Usuário não encontrado")
+		return
+	}
+
+	name := cmd.Flag("nome").Value.String()
+	if name == "" {
+		cmd.Println("Valor inválido para o nome")
+		return
+	}
+
+	admin := &schemas.Admin{}
+
+	if db.Where("usuario_id = ?", usuario.ID).First(&admin).RowsAffected == 0 {
+		cmd.Println("Admin não encontrado")
+		return
+	}
+
+	admin.Nome = name
+
+	if db.Save(&admin).Error != nil {
+		cmd.Println("Error updating admin")
+		return
+	}
+
+	cmd.Println("Admin updated successfully")
 }
