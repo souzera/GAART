@@ -1,6 +1,24 @@
 name: build
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
+
+  services:
+    postgres:
+      image: postgres:14
+      ports:
+        - 5432:5432
+      env:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: gaart
+      options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
   build:
     name: Build
@@ -8,20 +26,36 @@ jobs:
 
     steps:
 
-      - name: Checkout repository
+      - name: Checkout do código
         uses: actions/checkout@v2
 
-      - name: Set up Go
+      - name: Configurando o Go
         uses: actions/setup-go@v2
         with:
           go-version: 1.22.2
       
-      - name: Install dependencies
+      - name: Instalando dependências
         run: go mod tidy
         working-directory: ./server
 
-      - name: Build
+      - name: Esperando o banco de dados
+        run: 
+          for i in {1..10}; do
+            if PGPASSWORD=postgres psql -h localhost -U postgres -d gaart -c "SELECT 1" > /dev/null; then
+              echo "Banco de dados pronto!"
+              exit 0
+            fi
+            echo "Aguardando banco de dados..."
+            sleep 5
+          done
+          echo "Falha ao esperar o banco de dados" && exit 1
+
+      - name: Buildando a API da aplicação
         run: go build -v ./cmd/api/main.go
+        working-directory: ./server
+
+      - name: Buildando o CLI da aplicação
+        run: go build -v ./cmd/cli/main.go
         working-directory: ./server
 
       
