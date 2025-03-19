@@ -12,7 +12,6 @@ jobs:
   initialize-server:
     name: Initialize Server
     runs-on: ubuntu-latest
-    working-directory: ./server
 
     steps:
       - name: Checkout code
@@ -20,13 +19,13 @@ jobs:
 
       - name: Start container
         run: docker-compose -f "docker-compose.yml" up -d
+        working-directory: ./server
 
 
   build-server:
     name: Build
     runs-on: ubuntu-latest
     depends-on: initialize-server
-    working-directory: ./server
 
     steps:
       - name: Checkout code
