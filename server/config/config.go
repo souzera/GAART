@@ -2,7 +2,9 @@ package config
 
 import (
 	"fmt"
+	"os"
 
+	"github.com/lpernett/godotenv"
 	"gorm.io/gorm"
 )
 
@@ -13,13 +15,19 @@ var (
 func Init() error {
 	var err error
 
-	host := "localhost"
-	user := "postgres"
-	password := "postgres"
-	dbName := "gaart"
-	port := "5432"
-	sslmode := "disable"
-	timezone := "America/Fortaleza"
+	envErr := godotenv.Load()
+	if envErr != nil {
+		return fmt.Errorf("Error ao carregar o arquivo .env: %v",
+			envErr)
+	}
+
+	host := os.Getenv("DATABASE_HOST")
+	user := os.Getenv("DATABASE_USER")
+	password := os.Getenv("DATABASE_PASSWORD")
+	dbName := os.Getenv("DATABASE_NAME")
+	port := os.Getenv("DATABASE_PORT")
+	sslmode := os.Getenv("DATABASE_SSLMODE")
+	timezone := os.Getenv("DATABASE_TIMEZONE")
 
 	db, err = InitializePostgres(host, user, password, dbName, port, sslmode, timezone)
 	if err != nil {
