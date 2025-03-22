@@ -16,6 +16,8 @@ func InitializePostgres(host string, user string, password string, dbName string
 
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s timezone=%s", host, user, password, dbName, port, sslmode, timezone)
 
+	logger.Infof("Conectando com o banco de dados: %s", dsn)
+
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		logger.Errorf("Error ao conectar com o banco de dados: %v", err)

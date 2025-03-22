@@ -33,5 +33,6 @@ func AdminPermissions(contexto *gin.Context) {
 
 	logger.Infof("[ADMIN-PERMISSIONS] Admin %v autenticado", admin.Nome)
 
+	contexto.Status(http.StatusOK)
 	contexto.Next()
 }

@@ -15,10 +15,10 @@ var (
 func Init() error {
 	var err error
 
-	envErr := godotenv.Load()
-	if envErr != nil {
+	err = godotenv.Load()
+	if err != nil {
 		return fmt.Errorf("Error ao carregar o arquivo .env: %v",
-			envErr)
+			err)
 	}
 
 	host := os.Getenv("DATABASE_HOST")
@@ -26,7 +26,7 @@ func Init() error {
 	password := os.Getenv("DATABASE_PASSWORD")
 	dbName := os.Getenv("DATABASE_NAME")
 	port := os.Getenv("DATABASE_PORT")
-	sslmode := os.Getenv("DATABASE_SSLMODE")
+	sslmode := os.Getenv("DATABASE_SSL_MODE")
 	timezone := os.Getenv("DATABASE_TIMEZONE")
 
 	db, err = InitializePostgres(host, user, password, dbName, port, sslmode, timezone)

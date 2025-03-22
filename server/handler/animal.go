@@ -60,6 +60,7 @@ func validarCriarAnimalRequest(request schemas.CriarAnimalRequest) error {
 func CriarAnimal(contexto *gin.Context) {
 	request := schemas.CriarAnimalRequest{}
 
+	contexto.Status(http.StatusCreated)
 	contexto.BindJSON(&request)
 
 	if err := validarCriarAnimalRequest(request); err != nil {
@@ -110,6 +111,10 @@ func CriarAnimal(contexto *gin.Context) {
 		logger.Errorf("[CREATE-ANIMAL] Error: %v", err)
 		sendError(contexto, http.StatusInternalServerError, "Error ao criar animal")
 		return
+	}
+
+	if db.Preload("Raca.Especie").First(&animal).Error != nil {
+		logger.Errorf("Error ao Serializar o animal")
 	}
 
 	sendSucess(contexto, "criar-animal", animal)
