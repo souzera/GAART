@@ -57,6 +57,18 @@ sudo docker compose up
     - PGAdmin
     - Dbeaver
 
+3 - Configure o `.env` com as seguintes variavéis
+
+```
+DATABASE_HOST=""
+DATABASE_PORT=""
+DATABASE_USER=""
+DATABASE_PASSWORD=""
+DATABASE_NAME=""
+DATABASE_SSL_MODE=""
+DATABASE_TIMEZONE=""
+```
+
 ## Executando o projeto
 
 - Para executar a **API** projeto basta utilizar o comando
@@ -73,7 +85,15 @@ go run cmd/cli/main.go ping
 
 - **Lista de Comandos**
 
+- **ping**: retorna "PONG"
+- **version**: retorna a versão atual do projeto
+- **meta**: retorna o metadata do projeto
 - **create-admin**: criar um usuário administrador
+- **update-admin**: atualizar dados do administrador
+- **create-user**: criar usuário comum
+- **reset-password**: redefinir a senha de um usuário
+- [...]
+
 
 # Entidades
 
