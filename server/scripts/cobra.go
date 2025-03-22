@@ -34,6 +34,18 @@ func addCommands(parent *cobra.Command) {
 	cmdAtualizarAdmin.MarkFlagRequired("login")
 	cmdAtualizarAdmin.Flags().StringP("nome", "n", "", "Novo nome do admin")
 
+	cmdCriarUsuario := &cobra.Command{
+		Use:   "create-user",
+		Short: "Create an user",
+		Run:   CriaUsuario,
+	}
+
+	cmdRedefinirSenha := &cobra.Command{
+		Use:   "reset-password",
+		Short: "Reset the password",
+		Run:   RedefinirSenha,
+	}
+
 	parent.AddCommand(
 		&cobra.Command{
 			Use:   "ping",
@@ -42,8 +54,32 @@ func addCommands(parent *cobra.Command) {
 				cmd.Println("pong")
 			},
 		},
+
+		&cobra.Command{
+			Use:  "version",
+			Long: "Print the version of GAART",
+			Run: func(cmd *cobra.Command, args []string) {
+				cmd.Println("GAART v0.0.1")
+			},
+		},
+
+		&cobra.Command{
+			Use:   "meta",
+			Short: "Print the metadata",
+			Run: func(cmd *cobra.Command, args []string) {
+				cmd.Println("GAART - Gerenciador de Acesso e Autenticação\n Autor: Matheus Barbosa")
+			},
+		},
+
+		// ADMIN
+
 		cmdCriarAdmin,
 		cmdAtualizarAdmin,
+
+		// USUARIO
+
+		cmdCriarUsuario,
+		cmdRedefinirSenha,
 	)
 
 }

@@ -10,29 +10,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func validatePassword(password string) bool {
-	if len(password) < 8 {
-		return false
-	}
-	return true
-}
-
-func validateConfirmPassword(password string, confirmPassword string) bool {
-	return password == confirmPassword
-}
-
-func validateLogin(login string) bool {
-	if len(login) < 3 {
-		return false
-	}
-
-	if db.Where("login = ?", login).First(&schemas.Usuario{}).RowsAffected > 0 {
-		return false
-	}
-
-	return true
-}
-
 func CriarAdmin(cmd *cobra.Command, args []string) {
 	cmd.Println("\n[ ADICIONAR ADMIN ]")
 
@@ -77,36 +54,34 @@ func CriarAdmin(cmd *cobra.Command, args []string) {
 		confirmPassword = strings.TrimSpace(confirmPassword)
 	}
 
-	cmd.Print(password, confirmPassword)
-
 	hashed, err := util.HashSenha(strings.TrimSpace(password))
 	if err != nil {
-		cmd.Println("Error hashing password")
+		cmd.Println("Erro ao gerar o hash da senha")
 		return
 	}
 
 	usuario.Senha = hashed
 
 	if db.Create(usuario).Error != nil {
-		cmd.Println("Error creating user")
+		cmd.Println("Erro ao cria o usuário")
 		return
 	}
 
 	admin.UsuarioID = usuario.ID
 
-	cmd.Print("Enter the name of the admin: ")
+	cmd.Print("Digite o nome do admin: ")
 	name, _ := reader.ReadString('\n')
 	admin.Nome = strings.TrimSpace(name)
 
 	if db.Create(&admin).Error != nil {
 
-		// TODO: delete user if admin creation fails
+		db.Delete(&usuario)
 
-		cmd.Println("Error creating admin")
+		cmd.Println("Erro ao criar o admin")
 		return
 	}
 
-	cmd.Println("Admin created successfully")
+	cmd.Println("Admin criado com sucesso")
 }
 
 func AtualizarAdmin(cmd *cobra.Command, args []string) {
