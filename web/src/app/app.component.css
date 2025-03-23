@@ -1,0 +1,13 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    bottom: 0;
+}
