@@ -1,6 +1,6 @@
 # GAART
 
-## SVELTE - GOLANG Project Lab
+## ANGULAR - GOLANG Project Lab
 
 ## Adoções - Case Study
 
