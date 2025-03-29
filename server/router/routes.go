@@ -64,6 +64,10 @@ func initializeRoutes(router *gin.Engine) {
 
 		v1.GET("/adocoes", handler.ListarAdocoes) // TODO: middleware.AdminPermissions
 		v1.POST("/adocao", handler.CriarAdocao) // TODO: middleware.AdminPermissions
+
+		// Uploads
+		v1.POST("/upload-arquivo",middleware.AdminPermissions , handler.UploadArquivo)
+		v1.POST("/upload-multiplos-arquivos",middleware.AdminPermissions, handler.UploadMultiplosArquivos)
 	}
 
 }
