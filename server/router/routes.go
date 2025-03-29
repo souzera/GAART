@@ -27,8 +27,8 @@ func initializeRoutes(router *gin.Engine) {
 		// Usuários
 		v1.POST("/usuario", handler.CriarUsuario)
 		v1.POST("/login", handler.LoginUsuario)
-		v1.POST("/logout", middleware.RequireAuth, handler.LogoutUsuario) 
-		v1.PATCH("/redefinir-senha",middleware.RequireAuth, handler.RedefinirSenhaUsuario)
+		v1.POST("/logout", middleware.RequireAuth, handler.LogoutUsuario)
+		v1.PATCH("/redefinir-senha", middleware.RequireAuth, handler.RedefinirSenhaUsuario)
 
 		// Espécies
 
@@ -38,22 +38,22 @@ func initializeRoutes(router *gin.Engine) {
 
 		// Raças
 
-		v1.GET("/racas", handler.ListarRacas) 
-		v1.POST("/raca", handler.CriarRaca) // TODO: middleware.AdminPermissions
+		v1.GET("/racas", handler.ListarRacas)
+		v1.POST("/raca", handler.CriarRaca)      // TODO: middleware.AdminPermissions
 		v1.PATCH("/raca", handler.AtualizarRaca) // TODO: middleware.AdminPermissions
 
 		// Animais
 
 		v1.GET("/animais", handler.ListarAnimais)
 		v1.GET("/animal", handler.BuscarAnimal)
-		v1.POST("/animal", middleware.AdminPermissions, handler.CriarAnimal) 
-		v1.PATCH("/animal", middleware.AdminPermissions, handler.AtualizarAnimal) 
+		v1.POST("/animal", middleware.AdminPermissions, handler.CriarAnimal)
+		v1.PATCH("/animal", middleware.AdminPermissions, handler.AtualizarAnimal)
 
 		// Endereços
 
 		v1.GET("/enderecos", handler.ListarEnderecos) // TODO: middleware.AdminPermissions
-		v1.POST("/endereco", middleware.RequireAuth, handler.CriarEndereco) 
-		v1.PATCH("/endereco", middleware.RequireAuth, handler.AtualizarEndereco) 
+		v1.POST("/endereco", middleware.RequireAuth, handler.CriarEndereco)
+		v1.PATCH("/endereco", middleware.RequireAuth, handler.AtualizarEndereco)
 
 		// Tutores
 
@@ -63,11 +63,11 @@ func initializeRoutes(router *gin.Engine) {
 		// Adoções
 
 		v1.GET("/adocoes", handler.ListarAdocoes) // TODO: middleware.AdminPermissions
-		v1.POST("/adocao", handler.CriarAdocao) // TODO: middleware.AdminPermissions
+		v1.POST("/adocao", handler.CriarAdocao)   // TODO: middleware.AdminPermissions
 
 		// Uploads
-		v1.POST("/upload-arquivo",middleware.AdminPermissions , handler.UploadArquivo)
-		v1.POST("/upload-multiplos-arquivos",middleware.AdminPermissions, handler.UploadMultiplosArquivos)
+		v1.POST("/upload-arquivo", handler.UploadArquivo)
+		v1.POST("/upload-multiplos-arquivos", handler.UploadMultiplosArquivos)
 	}
 
 }

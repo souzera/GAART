@@ -21,7 +21,6 @@ func UploadArquivo(contexto *gin.Context) {
 
 	sendSucess(contexto, "upload-arquivo", "Arquivo salvo com sucesso")
 
-
 }
 
 func UploadMultiplosArquivos(contexto *gin.Context) {
@@ -35,11 +34,7 @@ func UploadMultiplosArquivos(contexto *gin.Context) {
 	for _, arquivo := range arquivos {
 		logger.Infof("Arquivo: %v", arquivo.Filename)
 
-		if err := contexto.SaveUploadedFile(arquivo, "./uploads/"+arquivo.Filename); err != nil {
-			logger.Errorf("[UPLOAD-ARQUIVO] Error: %v", err)
-			sendError(contexto, 500, "Erro ao salvar o arquivo")
-			return
-		}
+		// TODO: loop para salvar os arquivos
 	}
 
 	sendSucess(contexto, "upload-arquivo", "Arquivos salvos com sucesso")
