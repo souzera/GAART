@@ -4,7 +4,6 @@ import "github.com/gin-gonic/gin"
 
 func UploadArquivo(contexto *gin.Context) {
 
-	//upload do arquivo
 	arquivo, err := contexto.FormFile("arquivo")
 	if err != nil {
 		sendError(contexto, 400, "Erro ao fazer upload do arquivo")
