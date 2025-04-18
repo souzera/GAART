@@ -8,8 +8,6 @@ import (
 	"gorm.io/gorm"
 )
 
-// TODO: configuran .env
-
 func InitializePostgres(host string, user string, password string, dbName string, port string, sslmode string, timezone string) (*gorm.DB, error) {
 
 	logger := GetLogger("GAART")
