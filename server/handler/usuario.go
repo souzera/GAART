@@ -162,6 +162,12 @@ func validarCriarUsuarioRequest(request schemas.CriarUsuarioRequest) error {
 	return nil
 }
 
+// @Summary      Criar Usuário
+// @Description  Cria um novo usuário
+// @Accept       json
+// @Produce      json
+// @Success      200  {Usuario}  json
+// @Router       /usuario [post]
 func CriarUsuario(contexto *gin.Context) {
 
 	request := schemas.CriarUsuarioRequest{}

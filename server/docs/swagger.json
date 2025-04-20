@@ -1,0 +1,40 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server for GAART API",
+        "title": "GAART API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Matheus Barbosa"
+        },
+        "license": {
+            "name": "MIT License",
+            "url": "http://opensource.org/licenses/MIT"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8000",
+    "basePath": "/api/v1",
+    "paths": {
+        "/usuario": {
+            "post": {
+                "description": "Cria um novo usuário",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Criar Usuário",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "Usuario"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

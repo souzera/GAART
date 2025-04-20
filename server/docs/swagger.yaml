@@ -1,0 +1,27 @@
+basePath: /api/v1
+host: localhost:8000
+info:
+  contact:
+    name: Matheus Barbosa
+  description: This is a sample server for GAART API
+  license:
+    name: MIT License
+    url: http://opensource.org/licenses/MIT
+  termsOfService: http://swagger.io/terms/
+  title: GAART API
+  version: "1.0"
+paths:
+  /usuario:
+    post:
+      consumes:
+      - application/json
+      description: Cria um novo usuário
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: Usuario
+      summary: Criar Usuário
+swagger: "2.0"

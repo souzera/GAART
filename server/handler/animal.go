@@ -8,6 +8,12 @@ import (
 	"github.com/souzera/GAART/util"
 )
 
+// @Summary      Listar Animais
+// @Description  Lista todos os animais
+// @Accept       json
+// @Produce      json
+// @Success      200  {object} schemas.ListarAnimaisResponse
+// @Router       /animais [post]
 func ListarAnimais(contexto *gin.Context) {
 
 	animals := []schemas.Animal{}

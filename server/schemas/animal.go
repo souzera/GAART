@@ -46,3 +46,10 @@ type AtualizarAnimalRequest struct {
 	Castrado     *bool   `json:"castrado"`
 	Vacinado     *bool   `json:"vacinado"`
 }
+
+// RESPONSES
+
+type ListarAnimaisResponse struct {
+	Data []Animal `json:"data"`
+	Message string  `json:"message"`
+}

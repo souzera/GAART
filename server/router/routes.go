@@ -11,6 +11,9 @@ func initializeRoutes(router *gin.Engine) {
 	middleware.InitializeMiddleware()
 	handler.InitializeHandler()
 
+	// Swagger
+	InitializeSwagger(router)
+
 	v1 := router.Group("/api/v1/")
 	{
 		v1.GET("/ping", func(contexto *gin.Context) {
